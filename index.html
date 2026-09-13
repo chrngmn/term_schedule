@@ -340,6 +340,64 @@
     .event{grid-template-columns:1fr;}
     .event .time{padding-top:0;}
   }
+
+  .my-groups{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+  .my-groups>div{border:1px solid var(--ink);padding:14px 16px;background:var(--card)}
+  .my-groups span{display:block;font-size:10px;letter-spacing:.05em;color:var(--muted)}
+  .my-groups strong{display:block;font-size:30px;margin:4px 0}
+  .my-groups p{font-size:12px;margin:0;line-height:1.6}.my-groups a{color:inherit}
+  .week-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .week-navigation>div{text-align:center}.week-navigation strong{font-size:20px}
+  .week-navigation p{font-size:13px;color:var(--muted);margin:4px 0}
+  .week-navigation button,.week-tools button,.week-tools select{font:inherit;padding:10px 12px;border:1px solid var(--ink);background:var(--card);color:var(--ink);border-radius:0}
+  #previous-week,#next-week{background:transparent;border:1px solid rgba(14,14,14,.18);color:var(--muted);padding:8px 10px}
+  button:disabled{opacity:.3;cursor:default}
+  #current-week{background:transparent;border:1px solid rgba(14,14,14,.18);color:var(--muted)}
+  .week-tools{display:flex;justify-content:space-between;gap:10px;margin-top:8px;margin-bottom:16px}
+  .week-tools select{min-width:0;max-width:65%}.week-tools button{font-size:12px;cursor:pointer}
+  .view-status{font-size:12px;line-height:1.6;color:var(--muted);margin:14px 0}
+  .week-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;align-items:stretch;grid-auto-rows:1fr}
+  .unit-periods{border-bottom:1px solid #d8d5cc;padding:0 0 16px;margin-bottom:20px}
+  .unit-period{font-size:13px;line-height:1.7;margin:4px 0;color:var(--muted)}
+  .unit-period strong{color:var(--ink);margin-right:8px}
+  .unit-period.secondary strong{color:var(--whitecity)}
+  .unit-period .secondary{color:var(--whitecity)}
+  .unit-periods small{font-size:10px;color:var(--muted)}
+  .schedule-day{border:1px solid var(--ink);min-width:0;background:var(--card)}
+  #week-grid .schedule-day{height:var(--day-height,480px);display:flex;flex-direction:column;overflow:hidden}
+  #week-grid .schedule-day>h3{flex:none}
+  .day-events{display:grid;grid-auto-rows:minmax(0,1fr);flex:1;min-height:0}
+  .day-events>.schedule-event{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+  .schedule-day>h3{margin:0;padding:11px 9px;background:var(--ink);color:white;font-size:15px}
+  .schedule-day.focus-day{outline:none}
+  .schedule-day.focus-day>h3{background:var(--battersea)}
+  .schedule-event{padding:12px 9px;border-top:1px solid #d8d5cc}
+  .day-events>.schedule-event:first-child{border-top:none}
+  .event-time-row{display:flex;justify-content:space-between;align-items:stretch;gap:8px}
+  .event-time-row .event-time{line-height:18px;margin:0 0 9px}
+  .schedule-event .category{font-size:10px;line-height:16px;box-sizing:border-box;border-bottom:2px solid var(--battersea);white-space:nowrap;margin:0}
+  .schedule-event h4{font-size:13px;line-height:1.45;margin:0 0 8px;overflow-wrap:anywhere}
+  .schedule-event p{font-size:12px;line-height:1.5;margin:4px 0;overflow-wrap:anywhere}
+  .schedule-event .location,.schedule-event .event-note{color:var(--muted);font-size:11px}
+  .schedule-empty{padding:12px 9px;font-size:12px;line-height:18px;color:var(--muted)}
+  details summary{cursor:pointer}details p{line-height:1.7}
+  @media(min-width:1050px){.wrap{max-width:1120px}}
+  @media(max-width:700px){.week-grid{grid-template-columns:1fr}.schedule-event{padding:14px}.schedule-event h4{font-size:16px}.schedule-event p{font-size:13px}.schedule-day>h3{padding:12px 14px}.mode-btn{font-size:11px;padding:12px 5px}}
+  .schedule-event .event-time{font-size:17px;font-weight:700;line-height:1.35;margin:0 0 9px;color:var(--ink)}
+  .schedule-event h4{font-weight:600}
+  .sub a{color:var(--ink);font-size:12px;margin-left:8px;white-space:nowrap}
+  .week-navigation .unit-periods{margin:10px 0 0;padding:0;border:0}
+  .week-navigation .unit-period{font-size:12px;margin:3px 0}
+  #week-select{font:700 20px/1.2 var(--font-system);color:var(--ink);background:transparent;border:0;padding:4px 14px 4px 8px;cursor:pointer;max-width:100%;text-align:center;text-align-last:center}
+  #week-select option{font-size:14px;font-weight:400}
+  .week-navigation .unit-periods{margin:4px 0 0}
+  .week-navigation .unit-period{font-size:13px;line-height:1.2;margin:4px 0;color:var(--muted)}
+  .week-tools{justify-content:flex-end}
+  .schedule-day>h3{text-align:center;line-height:1.2}
+  .schedule-event .event-time{font-size:15px;line-height:1.2;font-weight:600}
+  .schedule-event h4{font-size:18px;line-height:1.2;font-weight:700}
+  .schedule-event .location{font-size:12px;line-height:1.2}
+  .schedule-event .event-note{font-size:11px;line-height:1.2}
 </style>
 </head>
 <body>
@@ -348,15 +406,15 @@
   <header class="hero">
     <p class="eyebrow">ROYAL COLLEGE OF ART — SERVICE DESIGN</p>
     <h1>Term<br>Timetable<span>.</span></h1>
-    <p class="sub">Induction : 7 September – 18 September 2026 <br> Unit 1 : 7 September – 23 October 2026</p>
+    <p class="sub">Studio : G7 · Tutor Jane<br>Unit1 : G23 · Tutor Joe <a href="https://docs.google.com/spreadsheets/d/12Q_TsZprY4Y7XLtEjmSC7KjEiinp0UDHXxc-9oJ4EJE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">팀명단</a></p>
   </header>
 
-  <div class="mode-switch">
-    <button class="mode-btn active" data-mode="welcome">Induction / Welcome Week</button>
-    <button class="mode-btn" data-mode="unit1">Unit 1</button>
+  <div class="mode-switch" aria-label="시간표 선택">
+    <button class="mode-btn active" data-mode="term" aria-pressed="true">Term 1</button>
+    <button class="mode-btn" data-mode="welcome" aria-pressed="false">Induction</button>
   </div>
 
-  <div class="mode-panel active" id="mode-welcome">
+  <div class="mode-panel" id="mode-welcome">
 
   <div class="legend">
     <div class="legend-item"><span class="dot" style="background:var(--battersea)"></span>Battersea</div>
@@ -380,37 +438,30 @@
     </div>
   </div>
 
+  <p id="induction-status" class="view-status" aria-live="polite"></p>
   <div class="tabs" id="tabs"></div>
   <div id="panels"></div>
 
   <p class="repeat-note">출처: rca.ac.uk/news-and-events/events/welcome-events-2026 · 세부 시간·장소는 변경될 수 있으니 예약 필요한 행사는 Eventbrite에서 재확인하세요.</p>
   </div>
 
-  <div class="mode-panel" id="mode-unit1">
-    <div class="unit-desktop">
-      <p class="unit-scroll-hint">← 화면이 좁으면 표를 옆으로 밀어보세요</p>
-      <div class="unit-table-scroll">
-        <table class="unit-table">
-          <colgroup>
-            <col class="wk-col">
-            <col class="day-col"><col class="day-col"><col class="day-col"><col class="day-col"><col class="day-col">
-          </colgroup>
-          <thead>
-            <tr>
-              <th></th>
-              <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
-            </tr>
-          </thead>
-          <tbody id="unit1-tbody"></tbody>
-        </table>
-      </div>
+  <div class="mode-panel active" id="mode-term">
+    <div class="week-navigation">
+      <button id="previous-week" aria-label="이전 주">←</button>
+      <div><select id="week-select" aria-label="주 선택"></select><div id="unit-periods" class="unit-periods"></div></div>
+      <button id="next-week" aria-label="다음 주">→</button>
     </div>
-
-    <div class="unit-mobile">
-      <div id="unit1-cards"></div>
-    </div>
-
-    <p class="repeat-note">출처: SD Welcome Session의 Unit 1 – Timetable Overview 사진 · 2026/09/09 반영. 시간은 런던 현지 기준입니다. '기재 없음'은 원본의 빈칸을 의미하며 휴강 확정이 아닙니다. Varied Rooms / Varied Times는 장소·시간이 각각 다르다는 뜻입니다. 9/30은 Tutorial 3와 Core Skills Workshop이 같은 칸에 있고, Gorvy Theatre · 15:30–17:30이 한 묶음으로 표기되어 일정별 적용 범위는 확인이 필요합니다. Unit 외 행사도 포함되어 있으므로 최신 일정은 Celcat 캘린더에서 확인하세요.</p>
+    <div class="week-tools"><button id="current-week">오늘 / 다음 일정</button></div>
+    <div id="week-grid" class="week-grid"></div>
+    <p class="unit-period" style="font-size:13px;margin:20px 0 0;color:var(--ink)">Term 1 : 7 September – 18 December 2026</p>
+    <details class="repeat-note">
+      <summary>일정 출처와 확인 사항</summary>
+      <p>Update : 13 September 2026</p>
+      <p>Term 1 – 2026 전체 시간표 PDF, W2 안내 메일, 개인 그룹 배정표를 반영했습니다. 9/14 Design Game은 메일 기준 16:30 종료입니다. Unit 1 장소는 앞서 제공된 안내와 그룹 배정표를 참고했습니다.</p>
+      <p>Unit 1 Group 23의 튜토리얼은 목요일입니다. 전체 시간대 10:00–17:00 안에서 개인 시작 시간은 Joe의 안내를 확인하세요. 금요일 튜토리얼은 개인 배정표상 n/a이며, 다른 금요일 행사는 표시합니다.</p>
+      <p>Unit 2의 Group A/B는 아직 배정 미확인으로 모두 표시합니다. 10/23 Group B는 PDF에 Tutorial 2로 표기되어 있어 원문을 유지했습니다. TBC/TBD는 미정이며, 기재 없음은 휴강 확정이 아닙니다. 최신 변경은 Celcat과 담당 튜터 공지를 확인하세요.</p>
+      <p>10/26–30 Independent Study Week · 12/21 및 12/28 시작 주 Winter Break.</p>
+    </details>
   </div>
 
   <footer>Royal College of Art · Service Design · 2026/27</footer>
@@ -493,15 +544,16 @@ const tabsEl = document.getElementById('tabs');
 const panelsEl = document.getElementById('panels');
 
 // Use the campus date even when the visitor is in another time zone.
-function getInitialDayIndex(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: 'Europe/London', year: 'numeric', month: 'numeric', day: 'numeric'
-  }).formatToParts(now);
+function londonDate(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(now);
   const part = type => parts.find(p => p.type === type).value;
-  if (part('year') !== '2026' || Number(part('month')) !== 9) return 0;
-  const today = `${Number(part('day'))} Sep`;
-  const index = days.findIndex(day => day.date === today);
-  return index < 0 ? 0 : index;
+  return part('year') + '-' + part('month') + '-' + part('day');
+}
+function inductionDate(day) { return '2026-09-' + String(parseInt(day.date, 10)).padStart(2, '0'); }
+function getInitialDayIndex(now = new Date()) {
+  const today = londonDate(now);
+  const index = days.findIndex(day => inductionDate(day) >= today);
+  return index < 0 ? days.length - 1 : index;
 }
 const initialDayIndex = getInitialDayIndex();
 
@@ -555,134 +607,801 @@ function selectDay(i) {
   document.querySelectorAll('.day-panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
 }
 
-document.querySelectorAll('.mode-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b === btn));
-    const mode = btn.dataset.mode;
-    document.getElementById('mode-welcome').classList.toggle('active', mode === 'welcome');
-    document.getElementById('mode-unit1').classList.toggle('active', mode === 'unit1');
-  });
-});
 
-const TBC = '장소 미정(TBC)';
-
-const unit1Weeks = [
+const termEvents = [
   {
-    label: 'Week 1', date: '7–11 September',
-    days: [
-      { dow: 'Mon', act: '', loc: '' },
-      { dow: 'Tue', act: 'Welcome Session', loc: 'Gorvy Theatre · 16:00–18:00' },
-      { dow: 'Wed', act: '', loc: '' },
-      { dow: 'Thu', act: '', loc: '' },
-      { dow: 'Fri', act: 'Studio Group Sessions', loc: 'Studio · 시간 상이 (추가 안내 예정)' }
-    ]
+    "date": "2026-09-08",
+    "category": "Unit 1",
+    "title": "Welcome Session",
+    "time": "16:00–18:00",
+    "location": "Gorvy Theatre",
+    "note": ""
   },
   {
-    label: 'Week 2', date: '14–18 September',
-    days: [
-      { dow: 'Mon', act: 'Design Game', loc: 'Studio · 11:00–16:00' },
-      { dow: 'Tue', act: 'Lecture Block 1: Introduction to Service Design + Project Briefing', loc: 'Gorvy Theatre · 1.1 10:00–11:30 / 1.2 12:00–13:30' },
-      { dow: 'Wed', act: 'Independent Study', loc: '' },
-      { dow: 'Thu', act: 'Tutorial 1 + Research Ethics Procedure (Online)', loc: 'Tutorial: Varied Rooms · Varied Times / Ethics: Online · 17:00–18:00' },
-      { dow: 'Fri', act: 'Tutorial 1', loc: 'Varied Rooms · Varied Times' }
-    ]
+    "date": "2026-09-11",
+    "category": "공통",
+    "title": "Studio Group Sessions",
+    "time": "",
+    "location": "Studio",
+    "note": "Studio G7 · Jane · 시간 상이 / 추가 안내"
   },
   {
-    label: 'Week 3', date: '21–25 September',
-    days: [
-      { dow: 'Mon', act: 'Lecture Block 2: Introduction to SD Methods', loc: 'Gorvy Theatre and Studio · 10:00–17:00' },
-      { dow: 'Tue', act: 'Lecture Block 2: Introduction to SD Methods (Ethics)', loc: 'Gorvy Theatre + Studio · 14:00–18:00' },
-      { dow: 'Wed', act: 'Core Skills Briefing', loc: 'Gorvy Theatre · 11:00–13:00' },
-      { dow: 'Thu', act: 'Tutorial 2', loc: 'Varied Rooms · Varied Times' },
-      { dow: 'Fri', act: 'Tutorial 2 + Computing & Technology Primer', loc: 'Varied Rooms · Varied Times' }
-    ]
+    "date": "2026-09-14",
+    "category": "Unit 1",
+    "title": "Design Game",
+    "time": "11:00–16:30",
+    "location": "Studio",
+    "note": "Project Group 23 · 11시 집합. 편한 신발·런던 날씨 대비, 노트북 불필요. 팀원들과 미리 연락하기."
   },
   {
-    label: 'Week 4', date: '28 September–2 October',
-    days: [
-      { dow: 'Mon', act: 'Across RCA Launch', loc: 'TBC' },
-      { dow: 'Tue', act: 'Lecture Block 3: Collaboration + Experience', loc: 'Hangar + Studio · 09:30–17:00' },
-      { dow: 'Wed', act: 'Tutorial 3 / Core Skills Workshop', loc: '원본 칸 표기: Gorvy Theatre · 15:30–17:30 (일정별 적용 범위 확인 필요)' },
-      { dow: 'Thu', act: 'Tutorial 3', loc: 'Varied Rooms · Varied Times' },
-      { dow: 'Fri', act: 'Tutorial 3', loc: 'Varied Rooms · Varied Times' }
-    ]
+    "date": "2026-09-15",
+    "category": "Unit 1",
+    "title": "1.A Briefing + Lecture: Introduction to Unit 1: Foundations of Service Design",
+    "time": "10:00–11:30",
+    "location": "Gorvy Theatre",
+    "note": "최신 메일의 제목 반영 · 개별 시간은 이전 시간표 기준"
   },
   {
-    label: 'Week 5', date: '5–9 October',
-    days: [
-      { dow: 'Mon', act: 'Independent Study', loc: '' },
-      { dow: 'Tue', act: 'Lecture Block 4: Value co-creation in service systems', loc: 'Gorvy Theatre · 10:00–13:00' },
-      { dow: 'Wed', act: 'Independent Study', loc: '' },
-      { dow: 'Thu', act: 'Final Project Reviews', loc: 'Varied Rooms · Varied Times' },
-      { dow: 'Fri', act: 'Unit 1 Reflection: Prizes + Service Typologies', loc: 'Studio · 13:00–17:30' }
-    ]
+    "date": "2026-09-15",
+    "category": "Unit 1",
+    "title": "1.B Lecture: From products to services: the evolution of the Service Design discipline",
+    "time": "12:00–13:30",
+    "location": "Gorvy Theatre",
+    "note": "최신 메일의 제목 반영 · 개별 시간은 이전 시간표 기준"
   },
   {
-    label: 'Week 6', date: '12–16 October',
-    days: [
-      { dow: 'Mon', act: '', loc: '' },
-      { dow: 'Tue', act: '', loc: '' },
-      { dow: 'Wed', act: '', loc: '' },
-      { dow: 'Thu', act: '', loc: '' },
-      { dow: 'Fri', act: '', loc: '' }
-    ]
+    "date": "2026-09-16",
+    "category": "Unit 1",
+    "title": "Independent Study · Working in Teams",
+    "time": "",
+    "location": "",
+    "note": "Project Group 23"
   },
   {
-    label: 'Week 7', date: '19–23 October',
-    days: [
-      { dow: 'Mon', act: '', loc: '' },
-      { dow: 'Tue', act: '', loc: '' },
-      { dow: 'Wed', act: 'Unit 1 Reflection: Review', loc: 'Gorvy Theatre · 17:00–18:30' },
-      { dow: 'Thu', act: '', loc: '' },
-      { dow: 'Fri', act: '', loc: '' }
-    ]
+    "date": "2026-09-17",
+    "category": "Unit 1",
+    "title": "Tutorial 1 · Group 23 · Joe",
+    "time": "TBU",
+    "location": "STU03-002A",
+    "note": "전체 배정 시간대 10:00–17:00 · 개인 시작 시간은 Joe 안내 확인"
+  },
+  {
+    "date": "2026-09-17",
+    "category": "공통",
+    "title": "Research Ethics Procedure",
+    "time": "17:00–18:00",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-09-21",
+    "category": "Unit 1",
+    "title": "Block 2: Introduction to Service Design Methods",
+    "time": "10:00–17:00",
+    "location": "Gorvy Theatre + Studio",
+    "note": ""
+  },
+  {
+    "date": "2026-09-22",
+    "category": "Unit 1",
+    "title": "Ethics + Ethics Game",
+    "time": "14:00–18:00",
+    "location": "Gorvy Theatre + Studio",
+    "note": ""
+  },
+  {
+    "date": "2026-09-23",
+    "category": "공통",
+    "title": "Core Skills Briefing",
+    "time": "11:00–13:00",
+    "location": "Gorvy Theatre",
+    "note": ""
+  },
+  {
+    "date": "2026-09-24",
+    "category": "Unit 1",
+    "title": "Tutorial 2 · Group 23 · Joe",
+    "time": "TBU",
+    "location": "STU01-005",
+    "note": "전체 배정 시간대 10:00–17:00 · 개인 시작 시간은 Joe 안내 확인"
+  },
+  {
+    "date": "2026-09-25",
+    "category": "공통",
+    "title": "Computing & Technology Primer",
+    "time": "15:30–17:30",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-09-28",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA: Launch",
+    "time": "",
+    "location": "대면 · 세부 장소 미정",
+    "note": ""
+  },
+  {
+    "date": "2026-09-29",
+    "category": "Unit 1",
+    "title": "Block 3: Collaboration & Experiences",
+    "time": "09:30–17:00",
+    "location": "Hangar + Studio",
+    "note": ""
+  },
+  {
+    "date": "2026-09-30",
+    "category": "공통",
+    "title": "SD Online Check-in",
+    "time": "10:30–11:30",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-09-30",
+    "category": "공통",
+    "title": "Core Skills Workshop",
+    "time": "15:30–17:30",
+    "location": "Gorvy Theatre",
+    "note": ""
+  },
+  {
+    "date": "2026-10-01",
+    "category": "Unit 1",
+    "title": "Tutorial 3 · Group 23 · Joe",
+    "time": "TBU",
+    "location": "STU01-005",
+    "note": "전체 배정 시간대 10:00–17:00 · 개인 시작 시간은 Joe 안내 확인"
+  },
+  {
+    "date": "2026-10-05",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "대면",
+    "note": ""
+  },
+  {
+    "date": "2026-10-06",
+    "category": "Unit 1",
+    "title": "Block 4: Value Co-creation in Service Systems",
+    "time": "10:00–13:00",
+    "location": "Gorvy Theatre",
+    "note": ""
+  },
+  {
+    "date": "2026-10-06",
+    "category": "공통",
+    "title": "Exploring Service Design with the Library",
+    "time": "15:00–16:00 · TBC",
+    "location": "",
+    "note": "일정 미정"
+  },
+  {
+    "date": "2026-10-07",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-08",
+    "category": "Unit 1",
+    "title": "Final Reviews",
+    "time": "10:00–18:00",
+    "location": "Varied Rooms",
+    "note": ""
+  },
+  {
+    "date": "2026-10-09",
+    "category": "Unit 1",
+    "title": "Reflection: Prizes + Service Typologies",
+    "time": "13:00–16:30",
+    "location": "Studio",
+    "note": ""
+  },
+  {
+    "date": "2026-10-12",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "대면",
+    "note": ""
+  },
+  {
+    "date": "2026-10-13",
+    "category": "Unit 2",
+    "title": "Block 1: Unit 2 project briefing",
+    "time": "10:00–15:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-14",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-14",
+    "category": "공통",
+    "title": "SD Online Check-in",
+    "time": "10:00–11:00",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-10-15",
+    "category": "Unit 2",
+    "title": "Kick-off Group Tutorial · Group A",
+    "time": "10:00–13:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-10-16",
+    "category": "Unit 2",
+    "title": "Kick-off Group Tutorial · Group B",
+    "time": "10:00–13:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-10-19",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-10-20",
+    "category": "Unit 2",
+    "title": "Block 2: SD in practice",
+    "time": "10:00–15:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-21",
+    "category": "Unit 2",
+    "title": "Project Partner Orientation Session",
+    "time": "",
+    "location": "",
+    "note": "시간 TBD"
+  },
+  {
+    "date": "2026-10-21",
+    "category": "Unit 1",
+    "title": "Unit 1 Review",
+    "time": "17:00–18:30",
+    "location": "Gorvy Theatre",
+    "note": ""
+  },
+  {
+    "date": "2026-10-22",
+    "category": "Unit 2",
+    "title": "Tutorial 1 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-10-22",
+    "category": "공통",
+    "title": "Panel Discussion: REPAIR",
+    "time": "17:00–18:30",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-23",
+    "category": "Unit 2",
+    "title": "Tutorial 2 · Group B",
+    "time": "10:00–13:00",
+    "location": "",
+    "note": "PDF의 Tutorial 2 표기 유지 · 회차 확인 필요 / Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-10-26",
+    "category": "공통",
+    "title": "Independent Study Week",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-27",
+    "category": "공통",
+    "title": "Independent Study Week",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-28",
+    "category": "공통",
+    "title": "Independent Study Week",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-29",
+    "category": "공통",
+    "title": "Independent Study Week",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-10-30",
+    "category": "공통",
+    "title": "Independent Study Week",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-02",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-11-03",
+    "category": "Unit 2",
+    "title": "Block 3: SD in practice",
+    "time": "09:30–17:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-03",
+    "category": "공통",
+    "title": "Programme Forum",
+    "time": "17:00–18:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-04",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-04",
+    "category": "공통",
+    "title": "SD Online Check-in",
+    "time": "10:00–11:00",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-11-05",
+    "category": "Unit 2",
+    "title": "Tutorial 2 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-06",
+    "category": "Unit 2",
+    "title": "Tutorial 2 · Group B",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-09",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "대면",
+    "note": ""
+  },
+  {
+    "date": "2026-11-10",
+    "category": "Unit 2",
+    "title": "Block 4: SD in practice",
+    "time": "10:00–14:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-11",
+    "category": "Unit 2",
+    "title": "Project Partner Discovery Workshop",
+    "time": "",
+    "location": "",
+    "note": "시간 TBD"
+  },
+  {
+    "date": "2026-11-12",
+    "category": "Unit 2",
+    "title": "Tutorial 3 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-13",
+    "category": "Unit 2",
+    "title": "Tutorial 3 · Group B",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-16",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-11-17",
+    "category": "Unit 2",
+    "title": "Block 5: SD in practice",
+    "time": "10:00–14:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-18",
+    "category": "Unit 2",
+    "title": "Block 5: SD in practice",
+    "time": "10:00–13:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-19",
+    "category": "Unit 2",
+    "title": "Tutorial 4 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-20",
+    "category": "Unit 2",
+    "title": "Tutorial 4 · Group B",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-23",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA",
+    "time": "",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-11-24",
+    "category": "Unit 2",
+    "title": "Block 6: SD in practice",
+    "time": "10:00–15:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-25",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-11-25",
+    "category": "공통",
+    "title": "SD Online Check-in",
+    "time": "10:00–11:00",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-11-26",
+    "category": "Unit 2",
+    "title": "Tutorial 5 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-27",
+    "category": "Unit 2",
+    "title": "Tutorial 5 · Group B",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-11-30",
+    "category": "AcrossRCA",
+    "title": "AcrossRCA: Summative Assessment",
+    "time": "",
+    "location": "대면",
+    "note": "Last tutor session"
+  },
+  {
+    "date": "2026-12-01",
+    "category": "Unit 2",
+    "title": "Block 7: SD in practice",
+    "time": "10:00–14:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-02",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-03",
+    "category": "Unit 2",
+    "title": "Tutorial 6 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-12-04",
+    "category": "Unit 2",
+    "title": "Tutorial 6 · Group B",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-12-07",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-08",
+    "category": "Unit 2",
+    "title": "Block 8: SD in practice",
+    "time": "10:00–14:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-09",
+    "category": "Unit 2",
+    "title": "Project Partner Prototyping Workshop",
+    "time": "",
+    "location": "",
+    "note": "시간 TBD"
+  },
+  {
+    "date": "2026-12-10",
+    "category": "Unit 2",
+    "title": "Tutorial 7 · Group A",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-12-11",
+    "category": "Unit 2",
+    "title": "Tutorial 7 · Group B",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": "Unit 2 그룹 배정 미확인"
+  },
+  {
+    "date": "2026-12-14",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-14",
+    "category": "공통",
+    "title": "SD Online Check-in",
+    "time": "10:00–11:00",
+    "location": "Online",
+    "note": ""
+  },
+  {
+    "date": "2026-12-15",
+    "category": "Unit 3",
+    "title": "Unit 3 Briefing",
+    "time": "13:00–14:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-16",
+    "category": "공통",
+    "title": "Independent Study",
+    "time": "",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-17",
+    "category": "Unit 2",
+    "title": "Project: Final Reviews",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": ""
+  },
+  {
+    "date": "2026-12-18",
+    "category": "Unit 2",
+    "title": "Project: Final Reviews",
+    "time": "10:00–17:00",
+    "location": "",
+    "note": ""
   }
 ];
 
-const unit1Tbody = document.getElementById('unit1-tbody');
-const DOW_KR = { Mon: '월', Tue: '화', Wed: '수', Thu: '목', Fri: '금' };
-unit1Weeks.forEach(week => {
-  const tr = document.createElement('tr');
-  const thHtml = `<th><span class="wk">${week.label}</span><span class="wkdate">${week.date}</span></th>`;
-  const tdsHtml = week.days.map(d => {
-    const isEmpty = !d.act;
-    return `<td class="${isEmpty ? 'empty' : ''}">
-      <p class="act">${d.act || '기재 없음'}</p>
-      ${d.loc ? `<p class="loc">${d.loc}</p>` : ''}
-    </td>`;
+function addDays(date, count) {
+  const d = new Date(date + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() + count);
+  return d.toISOString().slice(0, 10);
+}
+const weeks = Array.from({length: 15}, (_, i) => ({
+  number: i + 1, start: addDays('2026-09-07', i * 7),
+  end: addDays('2026-09-07', i * 7 + 4)
+}));
+function eventsFor(mode) {
+  return termEvents.filter(e => mode === 'term' || e.category === (mode === 'unit1' ? 'Unit 1' : 'Unit 2'));
+}
+function availableWeeks(mode) {
+  const events = eventsFor(mode);
+  return weeks.filter(w => mode === 'term' || events.some(e => e.date >= w.start && e.date <= w.end));
+}
+function preferredWeek(mode, now = new Date()) {
+  const available = availableWeeks(mode);
+  const today = londonDate(now);
+  const upcoming = eventsFor(mode).find(e => e.date >= today);
+  if (upcoming) return available.findIndex(w => upcoming.date >= w.start && upcoming.date <= w.end);
+  return available.length - 1;
+}
+function dateLabel(date) {
+  return new Intl.DateTimeFormat('en-GB', {day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
+}
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+let activeMode = 'term';
+let activeWeek = 0;
+let lastDate = londonDate();
+function renderWeek() {
+  const available = availableWeeks(activeMode);
+  const week = available[activeWeek];
+  const today = londonDate();
+  const events = eventsFor(activeMode);
+  const upcoming = events.find(e => e.date >= today);
+  const focusDate = upcoming ? upcoming.date : '';
+  const overlap = week.number >= 6 && week.number <= 7;
+  const showUnit1 = week.number <= 7;
+  const showUnit2 = week.number >= 6;
+  let periodsHtml = '';
+  if (showUnit1 && showUnit2) {
+    periodsHtml = '<p class="unit-period">Unit 1 : 7 Sep - 23 Oct / <span class="secondary">Unit 2 : 12 Oct - 18 Dec</span></p>';
+  } else if (showUnit1) {
+    periodsHtml = '<p class="unit-period">Unit 1 : 7 Sep - 23 Oct</p>';
+  } else if (showUnit2) {
+    periodsHtml = '<p class="unit-period">Unit 2 : 12 Oct - 18 Dec</p>';
+  }
+  document.getElementById('unit-periods').innerHTML = periodsHtml;
+  document.getElementById('week-select').innerHTML = available.map((w,i) =>
+    '<option value="'+i+'"'+(i===activeWeek?' selected':'')+'>Week '+w.number+'</option>').join('');
+  document.getElementById('previous-week').disabled = activeWeek === 0;
+  document.getElementById('next-week').disabled = activeWeek === available.length - 1;
+  const viewStatusEl = document.getElementById('view-status');
+  if (viewStatusEl) {
+    let status = !upcoming ? '등록된 이후 일정이 없어 마지막 일정 주를 표시합니다.' :
+      (focusDate === today ? '오늘 · ' : '가장 가까운 일정 · ') + dateLabel(focusDate);
+    if (activeMode === 'unit1') status += ' · Project Group 23 / Joe · 공통 행사는 Term 1에서 확인';
+    if (activeMode === 'unit2') status += ' · 그룹 배정 전: A/B 모두 표시 · 공통 행사는 Term 1에서 확인';
+    viewStatusEl.textContent = status;
+  }
+  document.getElementById('week-grid').innerHTML = ['Mon','Tue','Wed','Thu','Fri'].map((day,i) => {
+    const date = addDays(week.start,i);
+    const items = events.filter(e=>e.date===date);
+    return '<section class="schedule-day'+(date===focusDate?' focus-day':'')+'"><h3>'+
+      day+' · '+Number(date.slice(-2))+'</h3><div class="day-events">'+
+      (items.length ? items.map(e=>eventMarkup(e, overlap)).join(''):
+      '<p class="schedule-empty">'+(activeMode==='unit1' && ['2026-09-18','2026-09-25','2026-10-02'].includes(date)?
+      'Group 23 Tutorial 해당 없음 · 공통 행사는 Term 1에서 확인':'N/A')+'</p>')+'</div></section>';
   }).join('');
-  tr.innerHTML = thHtml + tdsHtml;
-  unit1Tbody.appendChild(tr);
-});
-
-const dowOrder = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-const unit1CardsEl = document.getElementById('unit1-cards');
-
-unit1Weeks.forEach(week => {
-  const card = document.createElement('div');
-  card.className = 'unit-week-card';
-
-  const rowsHtml = dowOrder.map(dow => {
-    const d = week.days.find(x => x.dow === dow);
-    const isEmpty = !d || !d.act;
-    return `<div class="unit-row${isEmpty ? ' empty' : ''}">
-      <div class="dow">${DOW_KR[dow]}</div>
-      <div class="content">
-        <p class="act">${isEmpty ? '기재 없음' : d.act}</p>
-        ${!isEmpty && d.loc ? `<p class="loc">${d.loc}</p>` : ''}
-      </div>
-    </div>`;
-  }).join('');
-
-  card.innerHTML = `
-    <div class="unit-week-card-head">
-      <span class="wk">${week.label}</span>
-      <span class="wkdate">${week.date}</span>
-    </div>
-    ${rowsHtml}
-  `;
-  unit1CardsEl.appendChild(card);
-});
+  fitWeekTwoHeight();
+}
+// Measure W2 at the current column width; keep that height for every week.
+function eventMarkup(e, overlap = false) {
+  const badge = (overlap && e.category === 'Unit 2') ? '<span class="category">Unit 2</span>' : '';
+  return '<article class="schedule-event"><div class="event-time-row"><p class="event-time">'+escapeHTML(e.time||'TBU')+'</p>'+badge+'</div>'+
+    '<h4>'+escapeHTML(e.title)+'</h4>'+
+    (e.location?'<p class="location">'+escapeHTML(e.location)+'</p>':'')+
+    (e.note?'<p class="event-note">* '+escapeHTML(e.note)+'</p>':'')+'</article>';
+}
+let measuredDayWidth = 0;
+function fitWeekTwoHeight() {
+  const grid = document.getElementById('week-grid');
+  const day = grid.querySelector('.schedule-day');
+  if (!day) return;
+  const width = day.getBoundingClientRect().width;
+  if (!width || width === measuredDayWidth) return;
+  measuredDayWidth = width;
+  const probe = document.createElement('section');
+  probe.className = 'schedule-day';
+  probe.setAttribute('aria-hidden', 'true');
+  probe.style.cssText = 'position:absolute;left:-10000px;visibility:hidden;pointer-events:none;width:'+width+'px;';
+  document.body.appendChild(probe);
+  let height = 0;
+  for (let i = 0; i < 5; i++) {
+    const items = termEvents.filter(e => e.date === addDays('2026-09-14', i));
+    probe.innerHTML = '<h3>Mon · 14</h3>' + items.map(e => eventMarkup(e)).join('');
+    const tallest = Math.max(0, ...Array.from(probe.querySelectorAll('.schedule-event'), e => e.getBoundingClientRect().height));
+    height = Math.max(height, probe.querySelector('h3').getBoundingClientRect().height + tallest * Math.max(1, items.length) + 4);
+  }
+  probe.remove();
+  grid.style.setProperty('--day-height', Math.ceil(height) + 'px');
+}
+window.addEventListener('resize', fitWeekTwoHeight);
+if (document.fonts) document.fonts.ready.then(() => { measuredDayWidth = 0; fitWeekTwoHeight(); });
+function openMode(mode) {
+  activeMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b=>{
+    const selected=b.dataset.mode===mode;
+    b.classList.toggle('active',selected);
+    b.setAttribute('aria-pressed',String(selected));
+  });
+  document.getElementById('mode-welcome').classList.toggle('active',mode==='welcome');
+  document.getElementById('mode-term').classList.toggle('active',mode!=='welcome');
+  if(mode==='welcome') {
+    const i=getInitialDayIndex();
+    selectDay(i);
+    const date=inductionDate(days[i]);
+    const today=londonDate();
+    document.getElementById('induction-status').textContent=date<today?
+      '인덕션 일정이 종료되어 마지막 날짜를 표시합니다.':(date===today?'오늘 · ':'다음 행사 · ')+dateLabel(date);
+    const tab=tabsEl.children[i];
+    tabsEl.scrollLeft=Math.max(0,tab.offsetLeft-tabsEl.offsetLeft-(tabsEl.clientWidth-tab.offsetWidth)/2);
+  } else {
+    activeWeek=preferredWeek(mode);
+    renderWeek();
+  }
+}
+document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>openMode(b.dataset.mode)));
+document.getElementById('previous-week').addEventListener('click',()=>{if(activeWeek>0){activeWeek--;renderWeek();}});
+document.getElementById('next-week').addEventListener('click',()=>{if(activeWeek<availableWeeks(activeMode).length-1){activeWeek++;renderWeek();}});
+document.getElementById('week-select').addEventListener('change',e=>{activeWeek=Number(e.target.value);renderWeek();});
+document.getElementById('current-week').addEventListener('click',()=>openMode(activeMode));
+function refreshOnNewDay() {
+  const today=londonDate();
+  if(today!==lastDate){lastDate=today;openMode(activeMode);}
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshOnNewDay();});
+window.addEventListener('pageshow',refreshOnNewDay);
+setInterval(refreshOnNewDay,60000);
+openMode('term');
 </script>
 </body>
 </html>
