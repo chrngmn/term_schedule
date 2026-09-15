@@ -1334,9 +1334,15 @@ function renderWeek(scrollToFocus) {
   }).join('');
   fitWeekTwoHeight();
   if (scrollToFocus) {
-    const focusEl = document.querySelector('#week-grid .focus-day');
-    if (focusEl) {
-      requestAnimationFrame(() => focusEl.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    const runScroll = () => {
+      const focusEl = document.querySelector('#week-grid .focus-day');
+      if (!focusEl) return;
+      requestAnimationFrame(() => requestAnimationFrame(() => focusEl.scrollIntoView({ behavior: 'smooth', block: 'start' })));
+    };
+    if (document.fonts && document.fonts.status !== 'loaded') {
+      document.fonts.ready.then(() => { fitWeekTwoHeight(); runScroll(); });
+    } else {
+      runScroll();
     }
   }
 }
