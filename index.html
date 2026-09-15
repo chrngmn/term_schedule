@@ -1292,7 +1292,7 @@ function escapeHTML(value) {
 let activeMode = 'term';
 let activeWeek = 0;
 let lastDate = londonDate();
-function renderWeek() {
+function renderWeek(scrollToFocus) {
   const available = availableWeeks(activeMode);
   const week = available[activeWeek];
   const today = londonDate();
@@ -1333,6 +1333,12 @@ function renderWeek() {
       'No Group 23 Tutorial · see Term 1 for shared events':'N/A')+'</p></div></article>')+'</div></section>';
   }).join('');
   fitWeekTwoHeight();
+  if (scrollToFocus) {
+    const focusEl = document.querySelector('#week-grid .focus-day');
+    if (focusEl) {
+      requestAnimationFrame(() => focusEl.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+  }
 }
 // Measure W2 at the current column width; keep that height for every week.
 function eventMarkup(e, overlap = false) {
@@ -1387,7 +1393,7 @@ function openMode(mode) {
     tabsEl.scrollLeft=Math.max(0,tab.offsetLeft-tabsEl.offsetLeft-(tabsEl.clientWidth-tab.offsetWidth)/2);
   } else {
     activeWeek=preferredWeek(mode);
-    renderWeek();
+    renderWeek(true);
   }
 }
 document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>openMode(b.dataset.mode)));
